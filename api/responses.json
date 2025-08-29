@@ -1,0 +1,23 @@
+{
+    "greetings": {
+        "hello": ["Hello! I'm AIOVerse, your AI assistant. How can I help you today?", "Hi there! I'm AIOVerse. What can I do for you?"],
+        "hi": ["Hi! I'm AIOVerse. How are you?", "Hello! I'm AIOVerse. Nice to meet you."],
+        "hey": ["Hey! I'm AIOVerse. What's up?", "Hey! I'm AIOVerse. How can I assist you?"]
+    },
+    "categories": {
+        "about": {
+            "what are you": ["I am AIOVerse, an AI assistant designed to help with your questions.", "I'm AIOVerse, a virtual assistant here to assist you."],
+            "what can you do": ["I can answer questions, provide information, and have conversations with you.", "I can help with a variety of tasks including answering questions and providing recommendations."]
+        },
+        "help": {
+            "help": ["I'm here to help! What do you need assistance with?", "Sure, I can help. What do you need?"],
+            "how do you work": ["Just type or speak your question, and I'll do my best to answer it.", "I use natural language processing to understand and respond to your queries."]
+        }
+    },
+    "fallback": [
+        "I'm not sure how to respond to that.",
+        "Could you please rephrase that?",
+        "I don't have an answer for that right now.",
+        "That's beyond my current capabilities."
+    ]
+}

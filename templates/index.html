@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOVerse - Intelligent Agent with Text & Voice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-planet">
+                <div class="planet-system">
+                    <div class="planet"></div>
+                    <div class="planet-ring"></div>
+                    <div class="planet-atmosphere"></div>
+                </div>
+            </div>
+            <div class="loading-text">INITIALIZING AIOVERSE...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    
+    <!-- Scanlines Effect -->
+    <div class="scanlines"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    AIOVerse
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#about">About</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                <button class="cta-button" onclick="window.location.href='{{ url_for('chat_page') }}'">Get Started</button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="AIOVerse - Intelligent AI with Voice & Text">AIOVerse - Intelligent AI with Voice & Text</h1>
+                <p>Experience the future of AI assistants with seamless text and voice interactions in one powerful platform</p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('chat_page') }}" class="primary-btn">Try for Free</a>
+                    <a href="#demo" class="secondary-btn">Watch Demo</a>
+                </div>
+            </div>
+            <div class="planet-container">
+                <div class="planet-system">
+                    <div class="planet" id="planet"></div>
+                    <div class="planet-ring"></div>
+                    <div class="planet-atmosphere"></div>
+                    <div class="planet-glow"></div>
+                </div>
+                <div class="stars-container" id="starsContainer"></div>
+                <div class="planet-info">
+                    <h3>META PLANET</h3>
+                    <p>Click to explore the universe of AI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features</h2>
+                <p>Our AI agent combines cutting-edge technology with intuitive design</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card holographic">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Dual Communication</h3>
+                    <p>Seamlessly switch between text and voice interactions for a natural conversation experience</p>
+                </div>
+                <div class="feature-card holographic">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Advanced Intelligence</h3>
+                    <p>Powered by state-of-the-art language models for accurate and context-aware responses</p>
+                </div>
+                <div class="feature-card holographic">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>Your data is encrypted and never shared, ensuring complete privacy and security</p>
+                </div>
+                <div class="feature-card holographic">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Continuous Learning</h3>
+                    <p>Our AI improves with every interaction, providing increasingly personalized experiences</p>
+                </div>
+                <div class="feature-card holographic">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Multi-Language</h3>
+                    <p>Communicate in over 30 languages with natural-sounding voice synthesis</p>
+                </div>
+                <div class="feature-card holographic">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Easy Integration</h3>
+                    <p>Seamlessly integrate with your existing platforms and workflows</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="section-title">
+                <h2>See It in Action</h2>
+                <p>Experience our AI agent's text and voice capabilities firsthand</p>
+            </div>
+            <div class="demo-container">
+                <div class="chat-interface">
+                    <div class="chat-header">
+                        <div class="ai-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3>AIOVerse Assistant</h3>
+                            <p>Online now</p>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            Hello! I'm AIOVerse, your AI assistant. You can type or speak to me. How can I help you today?
+                        </div>
+                        <div class="message user-message">
+                            Can you tell me about your features?
+                        </div>
+                        <div class="message bot-message">
+                            Absolutely! I offer both text and voice communication, advanced language understanding, and can assist with a wide range of tasks from answering questions to providing recommendations.
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type your message or use voice...">
+                        <button class="voice-btn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About AIOVerse</h2>
+                <p>Revolutionizing the way humans interact with artificial intelligence</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>The Future of AI Interaction</h2>
+                    <p>AIOVerse represents the next evolution in artificial intelligence, combining the convenience of voice commands with the precision of text input in a single, seamless interface.</p>
+                    <p>Our mission is to make AI accessible and useful for everyone, regardless of technical expertise or communication preferences.</p>
+                    <p>Founded in 2023, our team of AI researchers, linguists, and designers has worked tirelessly to create an agent that feels natural, responsive, and genuinely helpful.</p>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card holographic">
+                        <h3>Our Vision</h3>
+                        <p>To create AI assistants that understand and respond to humans as naturally as another person would.</p>
+                    </div>
+                    <div class="about-card holographic">
+                        <h3>Our Technology</h3>
+                        <p>Built on advanced neural networks and trained on diverse datasets for comprehensive understanding.</p>
+                    </div>
+                    <div class="about-card holographic">
+                        <h3>Our Approach</h3>
+                        <p>User-centric design with privacy, accessibility, and ethical considerations at the core.</p>
+                    </div>
+                    <div class="about-card holographic">
+                        <h3>Our Impact</h3>
+                        <p>Helping thousands of users save time, increase productivity, and access information effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that works best for you</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card holographic">
+                    <h3>Starter</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 1,000 text messages/month</li>
+                        <li><i class="fas fa-check"></i> 30 minutes voice/month</li>
+                        <li><i class="fas fa-check"></i> Basic AI capabilities</li>
+                        <li><i class="fas fa-check"></i> Community support</li>
+                    </ul>
+                    <button class="plan-btn">Get Started</button>
+                </div>
+                <div class="pricing-card holographic featured">
+                    <h3>Professional</h3>
+                    <div class="price">$19<span>/month</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 10,000 text messages/month</li>
+                        <li><i class="fas fa-check"></i> 5 hours voice/month</li>
+                        <li><i class="fas fa-check"></i> Advanced AI capabilities</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Custom voice options</li>
+                    </ul>
+                    <button class="plan-btn">Try Free for 14 Days</button>
+                </div>
+                <div class="pricing-card holographic">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Unlimited text messages</li>
+                        <li><i class="fas fa-check"></i> Unlimited voice</li>
+                        <li><i class="fas fa-check"></i> Full AI capabilities</li>
+                        <li><i class="fas fa-check"></i> 24/7 dedicated support</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> SLA guarantee</li>
+                    </ul>
+                    <button class="plan-btn">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-robot"></i>
+                        AIOVerse
+                    </div>
+                    <p>Creating intelligent AI agents that communicate naturally through text and voice.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AIOVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Add loading class to body to prevent scrolling during page load
+        document.body.classList.add('loading');
+        
+        // Remove loading class when page is fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.body.classList.remove('loading');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

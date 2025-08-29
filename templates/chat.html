@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOVerse - Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                AIOVerse
+            </div>
+            <div class="header-info">
+                <h1>AI Assistant</h1>
+                <p>Ask me anything, and I'll respond with text and voice!</p>
+            </div>
+        </div>
+        
+        <div class="chat-interface">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm AIOVerse, your AI assistant. You can type or speak to me. How can I help you today?
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your message or use voice...">
+                <button class="voice-btn" id="voiceBtn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-footer">
+            <p>&copy; 2023 AIOVerse. All rights reserved.</p>
+        </div>
+    </div>
+    <audio id="audioPlayer" style="display: none;"></audio>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
